@@ -10,7 +10,7 @@ After installing Node.js:
 Import files...
 
 ```sh
-npm install body-parser express express-handlebars mongoose nodemon
+npm i
 ```
 Then run:
 
