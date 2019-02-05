@@ -21,8 +21,10 @@ npm run start-watch
 
 ## Release History
 
-* 0.1.0
-    * The first proper release
+* 0.0.1
+    * The first release
+* 0.0.2
+    * Minor additions
     
 ## Meta
 
