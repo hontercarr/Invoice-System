@@ -5,7 +5,7 @@
             <th>Full Name</th>
             <th>Email</th>
             <th>Mobile</th>
-            <th>City</th>
+            <th>Address</th>
             <th></th>
         </tr>
     </thead>
@@ -15,7 +15,7 @@
             <td>{{this.fullName}}</td>
             <td>{{this.email}}</td>
             <td>{{this.mobile}}</td>
-            <td>{{this.city}}</td>
+            <td>{{this.address}}</td>
             <td>
                 <a href="/invoice/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
                 <a href="/invoice/delete/{{this._id}}" onclick="return confirm('Are you sure you would like to to delete this invoice?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>

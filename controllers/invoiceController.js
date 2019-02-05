@@ -21,7 +21,7 @@ function insertRecord(req, res){
   invoice.fullName = req.body.fullName;
   invoice.email = req.body.email;
   invoice.mobile = req.body.mobile;
-  invoice.city = req.body.city;
+  invoice.address = req.body.address;
   invoice.save((err, doc) =>{
     if (!err)
             res.redirect('invoice/list');

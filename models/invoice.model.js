@@ -11,7 +11,7 @@ var invoiceSchema = new mongoose.Schema({
   mobile: {
     type: String,
   },
-  city: {
+  address: {
     type: String,
   }
 });
