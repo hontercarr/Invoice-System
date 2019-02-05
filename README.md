@@ -18,7 +18,6 @@ Then run:
 npm run start-watch
 ```
 
-
 ## Release History
 
 * 0.0.1
