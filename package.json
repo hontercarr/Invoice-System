@@ -18,6 +18,7 @@
     "http": "0.0.0",
     "mongodb": "^3.1.13",
     "mongoose": "^5.4.6",
+    "nodemailer": "^5.1.1",
     "nodemon": "^1.18.9"
   },
   "devDependencies": {}

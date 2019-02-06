@@ -22,6 +22,8 @@ function insertRecord(req, res){
   invoice.email = req.body.email;
   invoice.mobile = req.body.mobile;
   invoice.address = req.body.address;
+  invoice.amount = req.body.amount;
+  invoice.owed = req.body.owed;
   invoice.save((err, doc) =>{
     if (!err)
             res.redirect('invoice/list');
@@ -46,7 +48,7 @@ function updateRecord(req, res) {
             if (err.name == 'ValidationError') {
                 handleValidationError(err, req.body);
                 res.render("invoice/addOrEdit", {
-                    viewTitle: 'Update Invoice',
+                    viewTitle: 'View Invoice',
                     invoice: req.body
                 });
             }
@@ -89,7 +91,7 @@ router.get('/:id',(req,res) =>{
   Invoice.findById(req.params.id, (err, doc) =>{
     if (!err) {
       res.render('invoice/addOrEdit', {
-        viewTitle: "Update Invoice",
+        viewTitle: "View Invoice",
         invoice: doc
       });
     }
@@ -104,5 +106,7 @@ router.get('/delete/:id', (req, res) => {
         else { console.log('Error in invoice delete :' + err); }
     });
 });
+
+// View
 
 module.exports = router;

@@ -1,4 +1,4 @@
-<h3><a class="btn btn-secondary" href="/invoice"><i class="fa fa-plus"></i> Create New</a> Invoice List</h3>
+<h3><a class="btn btn-secondary" href="/invoice"><i class="fa fa-plus"></i> Create New</a> Unpaid Invoices</h3>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -6,6 +6,8 @@
             <th>Email</th>
             <th>Mobile</th>
             <th>Address</th>
+            <th>Amount</th>
+            <th>Owed</th>
             <th></th>
         </tr>
     </thead>
@@ -16,6 +18,8 @@
             <td>{{this.email}}</td>
             <td>{{this.mobile}}</td>
             <td>{{this.address}}</td>
+            <td>{{this.amount}}</td>
+            <td>{{this.owed}}</td>
             <td>
                 <a href="/invoice/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
                 <a href="/invoice/delete/{{this._id}}" onclick="return confirm('Are you sure you would like to to delete this invoice?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>

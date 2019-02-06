@@ -13,6 +13,12 @@ var invoiceSchema = new mongoose.Schema({
   },
   address: {
     type: String,
+  },
+  amount: {
+    type: String,
+  },
+  owed: {
+    type: String,
   }
 });
 
