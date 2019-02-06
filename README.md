@@ -24,6 +24,8 @@ npm run start-watch
     * The first release
 * 0.0.2
     * Minor additions
+* 0.0.3
+   * Updated titles in preparation for unpaid/paid invoices pages
     
 ## Meta
 
