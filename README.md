@@ -21,11 +21,13 @@ npm run start-watch
 ## Release History
 
 * 0.0.1
-    * The first release
+    * The first release.
 * 0.0.2
-    * Minor additions
+    * Minor additions.
 * 0.0.3
-   * Updated titles in preparation for unpaid/paid invoices pages
+   * Updated titles in preparation for unpaid/paid invoices pages.
+* 0.0.4
+   * Added email on form submit.
     
 ## Meta
 
