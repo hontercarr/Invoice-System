@@ -14,6 +14,46 @@ router.post('/',(req, res) =>{
     insertRecord(req, res);
     else
     updateRecord(req, res);
+    const output = `
+  <p>Invoice Update</p>
+  <h3>Hello ${req.body.fullName}</h3>
+  <ul>
+    <li>Amount: ${req.body.amount}</li>
+    <li>Amount Owed: ${req.body.owed}</li>
+  </ul>
+  <p>gib the monies pls</p>
+  `;
+  var nodemailer = require('nodemailer');
+
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'isaacissupergay@gmail.com',
+      pass: 'isaacgay1'
+    }
+  });
+
+  var mailOptions = {
+    from: 'isaacissupergay@gmail.com',
+    to: `${req.body.email}`,
+    bcc: 'suawdev@gmail.com',
+    subject: `${req.body.fullName}'s Invoice Update - Be Adventurous Travel`,
+    html: output,
+  // attachments: [{
+        // filename: 'ctivetrips.png',
+        // path: 'http://localhost/img/'
+  // }]
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+
+      res.render('invoice/list');
+    }
+  });
 });
 
 function insertRecord(req, res){
