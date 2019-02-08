@@ -2,6 +2,8 @@ const express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
 const Invoice = mongoose.model('Invoice');
+const helpers = require('handlebars-helpers')();
+
 
 router.get('/',(req,res) =>{
   res.render('invoice/addOrEdit',{
@@ -15,13 +17,13 @@ router.post('/',(req, res) =>{
     else
     updateRecord(req, res);
     const output = `
-  <p>Invoice Update</p>
-  <h3>Hello ${req.body.fullName}</h3>
+  <h1>CattyShack Invoice Update</h1>
+  <h5>Hello ${req.body.fullName}</h5>
   <ul>
     <li>Amount: ${req.body.amount}</li>
     <li>Amount Owed: ${req.body.owed}</li>
   </ul>
-  <p>gib the monies pls</p>
+  <p>This is an automated message.</p>
   `;
   var nodemailer = require('nodemailer');
 
@@ -37,7 +39,7 @@ router.post('/',(req, res) =>{
     from: 'isaacissupergay@gmail.com',
     to: `${req.body.email}`,
     bcc: 'suawdev@gmail.com',
-    subject: `${req.body.fullName}'s Invoice Update - Be Adventurous Travel`,
+    subject: `${req.body.fullName}'s Invoice Update - CattyShack`,
     html: output,
   // attachments: [{
         // filename: 'ctivetrips.png',
@@ -64,6 +66,7 @@ function insertRecord(req, res){
   invoice.address = req.body.address;
   invoice.amount = req.body.amount;
   invoice.owed = req.body.owed;
+  invoice.isPaid = req.body.isPaid;
   invoice.save((err, doc) =>{
     if (!err)
             res.redirect('invoice/list');
@@ -102,6 +105,19 @@ router.get('/list',(req,res) =>{
   Invoice.find((err, docs) =>{
     if (!err){
       res.render('invoice/list',{
+        list: docs
+      });
+    }
+    else {
+      console.log('Error in retrieving invoice list ' + err);
+    }
+  });
+});
+
+router.get('/paid',(req,res) =>{
+  Invoice.find((err, docs) =>{
+    if (!err){
+      res.render('invoice/paid',{
         list: docs
       });
     }

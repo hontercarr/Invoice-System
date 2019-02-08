@@ -19,6 +19,13 @@ var invoiceSchema = new mongoose.Schema({
   },
   owed: {
     type: String,
+  },
+  isPaid: {
+    type: String
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 
