@@ -17,35 +17,35 @@ router.post('/',(req, res) =>{
     else
     updateRecord(req, res);
     const output = `
-  <h1>CattyShack Invoice Update</h1>
-  <h5>Hello ${req.body.fullName}</h5>
-  <ul>
-    <li>Amount: ${req.body.amount}</li>
-    <li>Amount Owed: ${req.body.owed}</li>
-  </ul>
-  <p>This is an automated message.</p>
-  `;
-  var nodemailer = require('nodemailer');
+      <h1>CattyShack Invoice Update</h1>
+      <h5>Hello ${req.body.fullName}</h5>
+      <ul>
+        <li>Amount: ${req.body.amount}</li>
+        <li>Amount Owed: ${req.body.owed}</li>
+      </ul>
+      <p>This is an automated message.</p>
+      `;
+    var nodemailer = require('nodemailer');
 
-  var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'isaacissupergay@gmail.com',
-      pass: 'isaacgay1'
-    }
-  });
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'isaacissupergay@gmail.com',
+        pass: 'isaacgay1'
+      }
+    });
 
-  var mailOptions = {
-    from: 'isaacissupergay@gmail.com',
-    to: `${req.body.email}`,
-    bcc: 'suawdev@gmail.com',
-    subject: `${req.body.fullName}'s Invoice Update - CattyShack`,
-    html: output,
-  // attachments: [{
-        // filename: 'ctivetrips.png',
-        // path: 'http://localhost/img/'
-  // }]
-  };
+    var mailOptions = {
+      from: 'isaacissupergay@gmail.com',
+      to: `${req.body.email}`,
+      bcc: 'suawdev@gmail.com',
+      subject: `${req.body.fullName}'s Invoice Update - CattyShack`,
+      html: output,
+    // attachments: [{
+          // filename: 'ctivetrips.png',
+          // path: 'http://localhost/img/'
+    // }]
+    };
 
     transporter.sendMail(mailOptions, function(error, info){
       if (error) {
