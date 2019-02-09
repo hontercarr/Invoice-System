@@ -28,6 +28,8 @@ npm run start-watch
    * Updated titles in preparation for unpaid/paid invoices pages.
 * 0.0.4
    * Added email on form submit.
+* 0.0.5
+   * Fixed a bug within nodemailer.
     
 ## Meta
 
