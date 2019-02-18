@@ -1,0 +1,32 @@
+<h3><a class="btn btn-secondary" href="customer/addOrEdit"><i class="fa fa-plus"></i> Create New</a> Customer <a class="btn btn-secondary float-right" href="/invoice/list"><i class="fa fa-plus"></i> Invoices</a></h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Address</th>
+            <th>Amount</th>
+            <th>Owed</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        {{#contains isPaid "False"}}
+        <tr>
+            <td>{{this.fullName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.mobile}}</td>
+            <td>{{this.address}}</td>
+            <td>
+                <a href="/customer/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/customer/delete/{{this._id}}" onclick="return confirm('Are you sure you would like to to delete this customer?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                <a href="/customer/update{{this.id}}"><i class="fa fa-money fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/contains}}
+        {{/each}}
+    </tbody>
+</table>
+

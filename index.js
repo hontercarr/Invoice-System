@@ -5,7 +5,9 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const bodyparser = require('body-parser');
 
+const customerController = require('./controllers/customerController');
 const invoiceController = require('./controllers/invoiceController');
+
 
 const app = express();
 
@@ -23,5 +25,9 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
+app.use('/customer', customerController);
+
 app.use('/invoice', invoiceController);
+
+
 
