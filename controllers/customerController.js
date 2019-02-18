@@ -90,8 +90,8 @@ function handleValidationError(err,body){
 router.get('/:id',(req,res) =>{
   Customer.findById(req.params.id, (err, doc) =>{
     if (!err) {
-      res.render('invoice/addOrEdit', {
-        viewTitle: "View Invoice",
+      res.render('customer/addOrEdit', {
+        viewTitle: "View Customer",
         customer: doc
       });
     }
