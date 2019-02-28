@@ -1,11 +1,11 @@
-<h3><a class="btn btn-secondary" href="/invoice"><i class="fa fa-plus"></i> Create New</a> Unpaid Invoices <a class="btn btn-secondary float-right" href="/invoice/paid"><i class="fa fa-plus"></i> Paid Invoices</a></h3>
+<h3><a class="btn btn-secondary" href="/invoice"><i class="fa fa-plus"></i> Create New</a> {{customer.fullName}}'s
+    Unpaid Invoices <a class="btn btn-secondary float-right" href="/invoice/paid"><i class="fa fa-plus"></i> Paid
+        Invoices</a></h3>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Full Name</th>
-            <th>Email</th>
-            <th>Mobile</th>
-            <th>Address</th>
+            <th>Item(s)</th>
+            <th>Date</th>
             <th>Amount</th>
             <th>Owed</th>
             <th></th>
@@ -13,22 +13,18 @@
     </thead>
     <tbody>
         {{#each list}}
-        {{#contains isPaid "False"}}
         <tr>
-            <td>{{this.fullName}}</td>
-            <td>{{this.email}}</td>
-            <td>{{this.mobile}}</td>
-            <td>{{this.address}}</td>
+            <td>{{this.item}}</td>
+            <td>{{this.date}}</td>
             <td>{{this.amount}}</td>
             <td>{{this.owed}}</td>
             <td>
                 <a href="/invoice/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
-                <a href="/invoice/delete/{{this._id}}" onclick="return confirm('Are you sure you would like to to delete this invoice?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
-                <a href="/invoice/update{{this.id}}"><i class="fa fa-money fa-lg" aria-hidden="true"></i></a>
+                <a href="/invoice/delete/{{this._id}}"
+                    onclick="return confirm('Are you sure you would like to to delete this invoice?');"><i
+                        class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
             </td>
         </tr>
-        {{/contains}}
         {{/each}}
     </tbody>
 </table>
-
