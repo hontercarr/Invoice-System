@@ -2,12 +2,17 @@ const express = require("express");
 var router = express.Router();
 const mongoose = require("mongoose");
 const Invoice = mongoose.model("Invoice");
+const Customer = mongoose.model("Customer");
 const helpers = require("handlebars-helpers")();
 
 router.get("/", (req, res) => {
-  res.render("invoice/addOrEdit", {
-    viewTitle: "New Invoice"
-  });
+  Customer.find({})
+        .then(customers => {
+            res.render('invoice/addOrEdit', {
+                customers:customers
+            });
+            console.log(customers);
+        });
 });
 
 router.post("/", (req, res) => {
@@ -23,6 +28,7 @@ function insertRecord(req, res) {
   invoice.amount = req.body.amount;
   invoice.owed = req.body.owed;
   invoice.isPaid = req.body.isPaid;
+  invoice.invoice_customer = req.body.invoice_customer;
   invoice.save((err, doc) => {
     if (!err) res.redirect("invoice/list");
     else {

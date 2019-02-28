@@ -3,10 +3,6 @@
 <form action="/invoice" method="POST" autocomplete="off">
     <input type="hidden" name="_id" value="{{customer._id}}">
     <div class="form-group">
-        <label>Customer</label>
-        <input type="text" class="form-control" name="item" placeholder="" value="{{invoice.customer}}">
-    </div>
-    <div class="form-group">
         <label>Item(s) Purchased</label>
         <input type="text" class="form-control" name="item" placeholder="Enter items purchased, separated by commas"
             value="{{invoice.item}}">
@@ -42,6 +38,18 @@
             </select>
         </div>
     </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="invoice_customer">Select Client</label>
+         <select class="selectpicker" data-live-search="true" name="invoice_customer" id="invoice_customer">
+           {{#each customers}}
+           <option>{{fullName}}</option>
+           {{/each}}
+         </select>
+
+
+      </div>
+  </div>
     <div class="form-group">
         <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
         <a class="btn btn-secondary" href="/invoice/list"><i class="fa fa-list-alt"></i> View All</a>

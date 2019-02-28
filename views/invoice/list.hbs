@@ -8,6 +8,7 @@
             <th>Date</th>
             <th>Amount</th>
             <th>Owed</th>
+            <th>Customer</th>
             <th></th>
         </tr>
     </thead>
@@ -18,6 +19,7 @@
             <td>{{this.date}}</td>
             <td>{{this.amount}}</td>
             <td>{{this.owed}}</td>
+            <td>{{this.invoice_customer}}</td>
             <td>
                 <a href="/invoice/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
                 <a href="/invoice/delete/{{this._id}}"

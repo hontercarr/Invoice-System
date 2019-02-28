@@ -18,6 +18,9 @@ var invoiceSchema = new mongoose.Schema({
   },
   isPaid: {
     type: String
+  },
+  invoice_customer: {
+    type: String
   }
 });
 
