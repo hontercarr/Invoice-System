@@ -35,6 +35,11 @@ router.get('/search/:invoice_customer', (req, res) => {
   });
 })
 
+// Search Page
+router.get('/searchcustomer', (req, res) => {
+  res.render('invoice/searchcusomter');
+});
+
 function insertRecord(req, res) {
   var invoice = new Invoice();
   invoice.item = req.body.item;
