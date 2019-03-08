@@ -1,0 +1,32 @@
+<h3><a class="btn btn-secondary" href="/invoice"><i class="fa fa-plus"></i> Create New</a>
+    {{invoicecustomer.[0].invoice_customer}}'s Invoices <a class="btn btn-secondary float-right" href="/invoice/paid"><i class="fa fa-plus"></i> Paid
+        Invoices</a></h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Item(s)</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Owed</th>
+            <th>Customer</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each invoicecustomer}}
+        <tr>
+            <td>{{this.item}}</td>
+            <td>{{this.date}}</td>
+            <td>{{this.amount}}</td>
+            <td>{{this.owed}}</td>
+            <td>{{this.invoice_customer}}</td>
+            <td>
+                <a href="/invoice/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/invoice/delete/{{this._id}}"
+                    onclick="return confirm('Are you sure you would like to to delete this invoice?');"><i
+                        class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

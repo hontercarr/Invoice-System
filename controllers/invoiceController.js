@@ -20,6 +20,21 @@ router.post("/", (req, res) => {
   else updateRecord(req, res);
 });
 
+// Find all invoices for client
+// View Client Form
+router.get('/search/:invoice_customer', (req, res) => {
+  Invoice.find({
+      invoice_customer: req.params.invoice_customer
+  })
+  .then(invoicecustomer => {
+      res.render('invoice/search', {
+        invoicecustomer: invoicecustomer
+      });
+      console.log(invoicecustomer);
+
+  });
+})
+
 function insertRecord(req, res) {
   var invoice = new Invoice();
   invoice.item = req.body.item;
