@@ -11,7 +11,6 @@ router.get("/", (req, res) => {
             res.render('invoice/addOrEdit', {
                 customers:customers
             });
-            console.log(customers);
         });
 });
 
@@ -30,14 +29,18 @@ router.get('/search/:invoice_customer', (req, res) => {
       res.render('invoice/search', {
         invoicecustomer: invoicecustomer
       });
-      console.log(invoicecustomer);
 
   });
 })
 
 // Search Page
 router.get('/searchcustomer', (req, res) => {
-  res.render('invoice/searchcusomter');
+  Customer.find({})
+        .then(customers => {
+            res.render('invoice/searchcustomer', {
+                customers:customers
+            });
+        });
 });
 
 function insertRecord(req, res) {
