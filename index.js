@@ -38,4 +38,6 @@ app.use("/customer", customerController);
 
 app.use("/invoice", invoiceController);
 
+app.use("/email", emailController);
+
 

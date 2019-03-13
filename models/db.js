@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose.connect(
-  "mongodb://localhost:27017/invoice",
+  "mongodb+srv://suaw:WW2_kar98@invoicing-rw3sx.mongodb.net/test?retryWrites=true",
   { useNewUrlParser: true },
   err => {
     if (!err) {
