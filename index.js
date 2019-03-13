@@ -7,6 +7,7 @@ const bodyparser = require("body-parser");
 
 const customerController = require("./controllers/customerController");
 const invoiceController = require("./controllers/invoiceController");
+const emailController = require("./controllers/emailController");
 
 const app = express();
 
