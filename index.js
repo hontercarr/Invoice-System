@@ -1,6 +1,7 @@
 require("./models/db");
 
 const express = require("express");
+const router = express.Router();
 const path = require("path");
 const exphbs = require("express-handlebars");
 const bodyparser = require("body-parser");
@@ -8,6 +9,7 @@ const bodyparser = require("body-parser");
 const customerController = require("./controllers/customerController");
 const invoiceController = require("./controllers/invoiceController");
 const emailController = require("./controllers/emailController");
+
 
 const app = express();
 
