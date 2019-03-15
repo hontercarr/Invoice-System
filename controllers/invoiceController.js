@@ -7,11 +7,11 @@ const helpers = require("handlebars-helpers")();
 
 router.get("/", (req, res) => {
   Customer.find({})
-        .then(customers => {
-            res.render('invoice/addOrEdit', {
-                customers:customers
-            });
-        });
+    .then(customers => {
+      res.render('invoice/addOrEdit', {
+        customers: customers
+      });
+    });
 });
 
 router.post("/", (req, res) => {
@@ -23,24 +23,24 @@ router.post("/", (req, res) => {
 // View Client Form
 router.get('/search/:invoice_customer', (req, res) => {
   Invoice.find({
-      invoice_customer: req.params.invoice_customer
+    invoice_customer: req.params.invoice_customer
   })
-  .then(invoicecustomer => {
+    .then(invoicecustomer => {
       res.render('invoice/search', {
         invoicecustomer: invoicecustomer
       });
 
-  });
+    });
 })
 
 // Search Page
 router.get('/searchcustomer', (req, res) => {
   Customer.find({})
-        .then(customers => {
-            res.render('invoice/searchcustomer', {
-                customers:customers
-            });
-        });
+    .then(customers => {
+      res.render('invoice/searchcustomer', {
+        customers: customers
+      });
+    });
 });
 
 function insertRecord(req, res) {
@@ -125,6 +125,8 @@ router.get("/delete/:id", (req, res) => {
     }
   });
 });
+
+
 
 // View
 

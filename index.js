@@ -1,4 +1,5 @@
 require("./models/db");
+require("dotenv").config();
 
 const express = require("express");
 const router = express.Router();
@@ -9,7 +10,9 @@ const bodyparser = require("body-parser");
 const customerController = require("./controllers/customerController");
 const invoiceController = require("./controllers/invoiceController");
 const emailController = require("./controllers/emailController");
-
+const mongoose = require('mongoose');
+const Invoice = mongoose.model("Invoice");
+const Customer = mongoose.model("Customer");
 
 const app = express();
 
@@ -29,10 +32,19 @@ app.engine(
   })
 );
 app.set("view engine", "hbs");
-app.use(express.static('public'))
+app.use(express.static("public"));
+
+app.get("/", async (req, res) => {
+  let list = [];
+  list.result = await Invoice.countDocuments({ isPaid: "False" });
+  list.result2 = await Invoice.countDocuments({ isPaid: "True" });
+  list.result3 = await Invoice.countDocuments({});
+  list.result4 = await Customer.countDocuments({});
+  res.render("dashboard", list);
+});
 
 
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

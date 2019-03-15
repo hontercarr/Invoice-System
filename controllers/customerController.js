@@ -56,6 +56,17 @@ function updateRecord(req, res) {
   );
 }
 
+router.get("/email/:id", (req, res) => {
+  Customer.findById(req.params.id, (err, doc) => {
+    if (!err) {
+      res.render("email/email", {
+        viewTitle: "Email",
+        invoice: doc
+      });
+    }
+  });
+});
+
 router.get("/list", (req, res) => {
   Customer.find((err, docs) => {
     if (!err) {

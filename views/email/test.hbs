@@ -1,0 +1,16 @@
+who to email to :)
+
+<form>
+    <div class="form-row align-items-center">
+        <div class="col-auto my-1">
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                {{#each customers}}
+                <option>{{email}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="col-auto my-1">
+            <button type="submit" class="btn btn-primary">Email :)</button>
+        </div>
+    </div>
+</form>

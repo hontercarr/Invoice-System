@@ -1,9 +1,22 @@
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<script>$(document).ready(function () {
+        $.noConflict();
+        var table = $('#example').DataTable();
+        var table = $('#example2').DataTable();
+    });</script>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+
 <title>Unpaid Invoices List</title>
 <h3><a class="btn btn-secondary" href="/invoice"><i class="fa fa-plus"></i> Create New</a>
     Unpaid Invoices <a class="btn btn-secondary float-right" href="/invoice/paid"><i class="fa fa-plus"></i> Paid
         Invoices</a></h3>
-<table class="table table-striped">
-    <thead>
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead class="thead-light">
         <tr>
             <th>Item(s)</th>
             <th>Date</th>
@@ -15,6 +28,7 @@
     </thead>
     <tbody>
         {{#each list}}
+        {{#contains isPaid "False"}}
         <tr>
             <td>{{this.item}}</td>
             <td>{{this.date}}</td>
@@ -28,6 +42,7 @@
                         class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
             </td>
         </tr>
+        {{/contains}}
         {{/each}}
     </tbody>
 </table>

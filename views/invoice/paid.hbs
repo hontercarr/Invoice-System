@@ -1,13 +1,25 @@
-<h3><a class="btn btn-secondary" href="/invoice"><i class="fa fa-plus"></i> Create New</a> Paid Invoices <a class="btn btn-secondary float-right" href="list"><i class="fa fa-plus"></i> Unpaid Invoices</a></h3>
-<table class="table table-striped">
-    <thead>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<script>$(document).ready(function () {
+        $.noConflict();
+        var table = $('#example').DataTable();
+        var table = $('#example2').DataTable();
+    });</script>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<h3><a class="btn btn-secondary" href="/invoice"><i class="fa fa-plus"></i> Create New</a> Paid Invoices <a
+        class="btn btn-secondary float-right" href="list"><i class="fa fa-plus"></i> Unpaid Invoices</a></h3>
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead class="thead-light">
         <tr>
-            <th>Full Name</th>
-            <th>Email</th>
-            <th>Mobile</th>
-            <th>Address</th>
+            <th>Item(s)</th>
+            <th>Date</th>
             <th>Amount</th>
             <th>Owed</th>
+            <th>Customer</th>
             <th></th>
         </tr>
     </thead>
@@ -15,20 +27,19 @@
         {{#each list}}
         {{#contains isPaid "True"}}
         <tr>
-            <td>{{this.fullName}}</td>
-            <td>{{this.email}}</td>
-            <td>{{this.mobile}}</td>
-            <td>{{this.address}}</td>
+            <td>{{this.item}}</td>
+            <td>{{this.date}}</td>
             <td>{{this.amount}}</td>
             <td>{{this.owed}}</td>
+            <td>{{this.invoice_customer}}</td>
             <td>
                 <a href="/invoice/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
-                <a href="/invoice/delete/{{this._id}}" onclick="return confirm('Are you sure you would like to to delete this invoice?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
-                <a href="/invoice/update{{this.id}}"><i class="fa fa-money fa-lg" aria-hidden="true"></i></a>
+                <a href="/invoice/delete/{{this._id}}"
+                    onclick="return confirm('Are you sure you would like to to delete this invoice?');"><i
+                        class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
             </td>
         </tr>
         {{/contains}}
         {{/each}}
     </tbody>
 </table>
-
