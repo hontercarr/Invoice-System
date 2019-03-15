@@ -3,6 +3,10 @@ var router = express.Router();
 const mongoose = require("mongoose");
 const Customer = mongoose.model("Customer");
 
+var hbs = require('nodemailer-express-handlebars');
+//attach the plugin to the nodemailer transporter
+
+
 router.get("/email/:email", (req, res) => {
   // res.render("email/email", {
   //   viewTitle: "Email"
@@ -17,7 +21,19 @@ router.get("/email/:email", (req, res) => {
 
 function sendInvoice(emailu) {
   var nodemailer = require('nodemailer');
+  var hbs = require('nodemailer-express-handlebars');
+  var options = {
+     viewEngine: {
+         extname: '.hbs',
+         layoutsDir: 'views/email/',
+         defaultLayout : 'template',
+         partialsDir : 'views/partials/'
+     },
+     viewPath: 'views/email/',
+     extName: '.hbs'
+ };
 
+  
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -25,25 +41,35 @@ function sendInvoice(emailu) {
       pass: 'retardretard123'
     }
   });
+  // transporter.use('compile', hbs(email.hbs));
 
-  var mailOptions = {
-    from: 'retardretard750@gmail.com',
+  // var mailOptions = {
+  //   from: 'retardretard750@gmail.com',
+  //   to: emailu,
+  //   bcc: '',
+  //   subject: 'Test',
+  //   html: ''
+  //   // attachments: [{
+  //   //   filename: 'ctivetrips.png',
+  //   //   path: 'http://localhost/img/activetrips.png'
+  //   // }]
+  // };
+
+//   var mailOptions = {
+//     from: 'retardretard750@gmail.com',
+//     to: emailu,
+//     subject: 'Test :)',
+//     template: 'email',
+//     context: {
+//         name: 'Name'
+//     }
+//  }
+  transporter.use('compile', hbs(options));
+  transporter.sendMail({
+    form: 'retardretard750@gmail.com',
     to: emailu,
-    bcc: '',
-    subject: 'Test',
-    html: ''
-    // attachments: [{
-    //   filename: 'ctivetrips.png',
-    //   path: 'http://localhost/img/activetrips.png'
-    // }]
-  };
-
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
+    subject: 'CattyShack Invoices',
+    template: 'email_body'
   });
 }
 
