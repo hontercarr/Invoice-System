@@ -19,6 +19,7 @@ router.post("/", (req, res) => {
   else updateRecord(req, res);
 });
 
+
 // Find all invoices for client
 // View Client Form
 router.get('/search/:invoice_customer', (req, res) => {
@@ -105,16 +106,16 @@ router.get("/paid", (req, res) => {
   });
 });
 
-router.get("/:id", (req, res) => {
-  Invoice.findById(req.params.id, (err, doc) => {
-    if (!err) {
-      res.render("invoice/addOrEdit", {
-        viewTitle: "View Invoice",
-        invoice: doc
-      });
-    }
-  });
+router.get("/:id", async(req, res) => {
+  let list = [];
+  list.invoice = await Invoice.findById(req.params.id);
+  list.customers = await Customer.find({});
+  res.render("invoice/addOrEdit", list);
 });
+  
+  
+  
+
 
 router.get("/delete/:id", (req, res) => {
   Invoice.findByIdAndDelete(req.params.id, (err, doc) => {

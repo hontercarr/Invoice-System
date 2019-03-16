@@ -40,6 +40,7 @@ app.get("/", async (req, res) => {
   list.result2 = await Invoice.countDocuments({ isPaid: "True" });
   list.result3 = await Invoice.countDocuments({});
   list.result4 = await Customer.countDocuments({});
+  list.result5 = await Invoice.find({ isPaid: "False" });
   res.render("dashboard", list);
 });
 

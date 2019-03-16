@@ -50,6 +50,7 @@
         <div class="form-group col-md-12">
             <label for="invoice_customer">Select Client</label>
             <select class="selectpicker" data-live-search="true" name="invoice_customer" id="invoice_customer">
+                <option selected>{{invoice.invoice_customer}}</option>
                 {{#each customers}}
                 <option>{{fullName}}</option>
                 {{/each}}
