@@ -47,7 +47,7 @@ p, ul, ol { font-size: 16px; font-weight: normal; margin-bottom: 20px; }
 
 .container table { width: 100% !important; border-collapse: collapse; }
 
-.container .masthead { padding: 80px 0; background: #122C34; color: #05668D; }
+.container .masthead { padding: 80px 0; background-image: url("https://i.imgur.com/Ppbq0P3.jpg"); color: #fff; }
 
 .container .masthead h1 { margin: 0 auto !important; max-width: 90%; text-transform: uppercase; }
 
@@ -80,34 +80,27 @@ p, ul, ol { font-size: 16px; font-weight: normal; margin-bottom: 20px; }
                 <tr>
                     <td class="content">
 
-                        <h2>Hi NAME,</h2>
+                        <h2>Hi {{data.0.invoice_customer}},</h2>
 
-                        <p>Here is a list of unpaid invoices that you owe to the CattyShack.</p>
+                        <p>Below are the unpaid invoices currently under your name.</p>
 
                         <table style="width:100%; border: 1px solid black;">
                             <tr style="border: 1px solid black;">
                                 <th>Item</th>
                                 <th>Price</th> 
                             </tr>
+                            {{#each data}}
+                            {{#contains isPaid "False"}}
                             <tr style="border: 1px solid black;">
-                                <td>Jill</td>
-                                <td>15</td> 
+                                <td>{{item}}</td>
+                                <td>{{amount}}</td> 
                             </tr>
-                            <tr style="border: 1px solid black;">
-                                <td>Eve</td>
-                                <td>25</td> 
-                            </tr>
-                            <tr style="border: 1px solid black;">
-                                <td>sdf</td>
-                                <td>50</td> 
-                            </tr>
-                            <tr style="border: 1px solid black;">
-                                <td>uwuwuw</td>
-                                <td>18.50</td> 
-                            </tr>
+                            {{/contains}}
+                            {{/each}}
+                            
                         </table><br>
 
-                        <p>Please pay these off as soon as possible to the CattyShack.</p>
+                        <p>Please pay these off as soon as possible at the CattyShack.</p>
 
                         
 
@@ -124,8 +117,9 @@ p, ul, ol { font-size: 16px; font-weight: normal; margin-bottom: 20px; }
             <table>
                 <tr>
                     <td class="content footer" align="center">
-                        <p>Sent by <a href="#">The CattyShack</a></p>
+                        <p>Developed for <a href="#">The CattyShack</a></p>
                         <p><a href="#">Automated Email</a></p>
+                        <p>Questions? <a href="mailto:farrare@belleville.k12.wi.us">Email Us</a></p>
                     </td>
                 </tr>
             </table>
