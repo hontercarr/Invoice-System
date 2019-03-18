@@ -101,6 +101,20 @@ router.get("/test", (req, res) => {
     });
 });
 
+function sendAll() {
+  Customer.find({})
+    .then(all => {
+      i = 0;
+      if( i > 0) {
+        console.log(all.email[i]);
+        i++;
+      } else {
+        return 0;
+      }
+        })
+}
+console.log(sendAll());
+
 module.exports = router;
 
 
