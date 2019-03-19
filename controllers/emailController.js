@@ -20,16 +20,28 @@ var hbs = require("nodemailer-express-handlebars");
 
 router.get("/all", (req, res) => {
   Customer.distinct("email", function(error, ids) {
-    const theEmail = ids[0];
+    const theEmail = ids;
     console.log(theEmail);
-    Customer.find({ email: theEmail }).then(customers => {
-      const customerName = customers[0].fullName;
-      Invoice.find({ invoice_customer: customerName }).then(thecustomer => {
-        console.log(thecustomer);
-        // sendInvoice(ids, thecustomer);
-      });
-      res.render("email/email");
-    });
+    let o = 0;
+    const emailAll = function() {
+      if (o != theEmail.length) {
+        let oneEmail = theEmail[o];
+        console.log(oneEmail);
+        Customer.find({ email: theEmail }).then(customers => {
+          let customerName = customers[0].fullName;
+          Invoice.find({ invoice_customer: customerName }).then(thecustomer => {
+            sendInvoice(ids, thecustomer);
+            console.log(`Email sent successfully`);
+          });
+          res.render("email/email");
+        });
+        o++;
+        emailAll();
+      } else {
+        console.log("All emails have been sent!");
+      }
+    };
+    emailAll();
   });
 });
 
