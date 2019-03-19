@@ -10,7 +10,7 @@ var hbs = require('nodemailer-express-handlebars');
 
 router.get("/email/:email", (req, res) => {
   // res.render("email/email", {
-  //   viewTitle: "Email"
+  //   viewTitle: "Email" 
   // });
   let emailtest = req.params;
   // Debug - Print Email
