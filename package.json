@@ -23,7 +23,10 @@
     "mongoose": "^5.4.6",
     "nodemailer": "^5.1.1",
     "nodemailer-express-handlebars": "^3.0.0",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "phantomjs": "^2.1.7",
+    "raw-loader": "^1.0.0",
+    "webpage": "^0.3.0"
   },
   "devDependencies": {}
 }

@@ -20,6 +20,16 @@ router.post("/", (req, res) => {
 });
 
 
+router.get("/status/:id", (req, res) => {
+  Invoice.updateOne({_id: req.params.id}, {$set: {"isPaid": "True"}}, {new: true}, (err, doc) => {
+    if(err){
+      console.log("err: " + err);
+    }
+    res.redirect('http://localhost:8080/invoice/list');
+  })
+});
+
+
 // Find all invoices for client
 // View Client Form
 router.get('/search/:invoice_customer', (req, res) => {
@@ -126,6 +136,7 @@ router.get("/delete/:id", (req, res) => {
     }
   });
 });
+
 
 
 

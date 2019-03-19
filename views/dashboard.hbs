@@ -43,70 +43,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-                            <div class="stats stats-info">
-                                <h3 class="stats-title"> Info </h3>
-                                <div class="stats-content">
-                                    <div class="stats-icon">
-                                        <i class="fas fa-cart-arrow-down"></i>
-                                    </div>
-                                    <div class="stats-data">
-                                        <div class="stats-number">{{result5.[0].amount}}</div>
-                                        <div class="stats-change">
-                                            <span class="stats-percentage">+17.5%</span>
-                                            <span class="stats-timeframe">from last month</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="stats stats-warning">
-                                <h3 class="stats-title"> Warning </h3>
-                                <div class="stats-content">
-                                    <div class="stats-icon">
-                                        <i class="fas fa-cart-arrow-down"></i>
-                                    </div>
-                                    <div class="stats-data">
-                                        <div class="stats-number">$100</div>
-                                        <div class="stats-change">
-                                            <span class="stats-percentage">+17.5%</span>
-                                            <span class="stats-timeframe">from last month</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="stats stats-dark">
-                                <h3 class="stats-title"> Date </h3>
-                                <div class="stats-content">
-                                    <div class="stats-icon">
-                                        <i class="fas fa-cart-arrow-down"></i>
-                                    </div>
-                                    <div class="stats-data">
-                                        <div class="stats-number"><script>var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
-
-today = mm + '/' + dd + '/' + yyyy;
-document.write(today);</script></div>
-                                        <div class="stats-change">
-                                            <span class="stats-timeframe"><script type="text/javascript">
-    var d=new Date()
-    var weekday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday",
-                "Friday","Saturday")
-    document.write(weekday[d.getDay()])
-</script></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-    </div>
-    <div class="row">
-        <div class="col-xl-6">
+<div class="col-xl-8">
             <div class="card spur-card">
                 <div class="card-header">
                     <div class="spur-card-icon">
@@ -158,43 +95,36 @@ document.write(today);</script></div>
                                 </div>
             </div>
         </div>
-        <div class="col-xl-6">
-            <div class="card spur-card">
-                <div class="card-header">
-                    <div class="spur-card-icon">
-                        <i class="fas fa-bell"></i>
-                    </div>
-                    <div class="spur-card-title"> Notifications </div>
-                </div>
-                <div class="card-body ">
-                    <div class="notifications">
-                        <a href="#!" class="notification">
-                            <div class="notification-icon">
-                                <i class="fas fa-inbox"></i>
+                        <div class="col-lg-4 ">
+                            <div class="stats stats-dark">
+                                <h3 class="stats-title"> Date </h3>
+                                <div class="stats-content">
+                                    <div class="stats-icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="stats-data">
+                                        <div class="stats-number"><script>var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = mm + '/' + dd + '/' + yyyy;
+document.write(today);</script></div>
+                                        <div class="stats-change">
+                                            <span class="stats-timeframe"><script type="text/javascript">
+    var d=new Date()
+    var weekday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday",
+                "Friday","Saturday")
+    document.write(weekday[d.getDay()])
+</script></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="notification-text">New comment</div>
-                            <span class="notification-time">21 days ago</span>
-                        </a>
-                        <a href="#!" class="notification">
-                            <div class="notification-icon">
-                                <i class="fas fa-inbox"></i>
-                            </div>
-                            <div class="notification-text">New comment</div>
-                            <span class="notification-time">21 days ago</span>
-                        </a>
-                        <a href="#!" class="notification">
-                            <div class="notification-icon">
-                                <i class="fas fa-inbox"></i>
-                            </div>
-                            <div class="notification-text">New comment</div>
-                            <span class="notification-time">21 days ago</span>
-                        </a>
-                        <div class="notifications-show-all">
-                            <a href="#!">Show all</a>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
+    <div class="row">
+        
+        
     </div>
 </div>
