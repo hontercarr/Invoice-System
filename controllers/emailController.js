@@ -18,31 +18,29 @@ var hbs = require("nodemailer-express-handlebars");
 //   res.render("email/email");
 // });
 
+var o = 0;
+
 router.get("/all", (req, res) => {
   Customer.distinct("email", function(error, ids) {
-    const theEmail = ids;
-    console.log(theEmail);
-    let o = 0;
-    const emailAll = function() {
-      if (o != theEmail.length) {
+    let theEmail = ids;
+    let emailAll = function() {
+      if (o < theEmail.length) {
         let oneEmail = theEmail[o];
-        console.log(oneEmail);
-        Customer.find({ email: theEmail }).then(customers => {
+        Customer.find({ email: oneEmail }).then(customers => {
           let customerName = customers[0].fullName;
           Invoice.find({ invoice_customer: customerName }).then(thecustomer => {
-            sendInvoice(ids, thecustomer);
-            console.log(`Email sent successfully`);
+            sendInvoice(oneEmail, thecustomer);
           });
-          res.render("email/email");
         });
         o++;
         emailAll();
       } else {
-        console.log("All emails have been sent!");
+        return;
       }
     };
     emailAll();
   });
+  res.render("email/email");
 });
 
 // router.get("/all", (req, res) => {
@@ -51,7 +49,7 @@ router.get("/all", (req, res) => {
 //   });
 // });
 
-function sendInvoice(ids, thecustomer) {
+function sendInvoice(oneEmail, data) {
   var nodemailer = require("nodemailer");
   var hbs = require("nodemailer-express-handlebars");
   var options = {
@@ -76,11 +74,11 @@ function sendInvoice(ids, thecustomer) {
   transporter.use("compile", hbs(options));
   transporter.sendMail({
     form: "retardretard750@gmail.com",
-    to: ids,
+    to: oneEmail,
     subject: "CattyShack Invoices",
     template: "email_body",
     context: {
-      thecustomer: thecustomer
+      data: data
     }
   });
 }
