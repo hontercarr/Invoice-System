@@ -23,7 +23,9 @@
     "mongoose": "^5.4.6",
     "nodemailer": "^5.1.1",
     "nodemailer-express-handlebars": "^3.0.0",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "phantom": "^6.0.3",
+    "shelljs": "^0.8.3"
   },
   "devDependencies": {}
 }
