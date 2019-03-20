@@ -50,10 +50,9 @@ app.listen(port, () => {
 });
 
 setTimeout(function() {
-  if (shell.exec("./phantomjs ./controllers/emailCron.js").code !== 0) {
-    shell.echo("Auto Emails Sent Sucessfully");
-    shell.exit(1);
-  }
+  shell.exec("./phantomjs ./controllers/emailCron.js");
+  shell.echo("Auto Emails Sent Sucessfully");
+  shell.exit(1);
 }, 10000);
 
 app.use("/customer", customerController);
