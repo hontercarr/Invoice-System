@@ -6,12 +6,11 @@ const Customer = mongoose.model("Customer");
 const helpers = require("handlebars-helpers")();
 
 router.get("/", (req, res) => {
-  Customer.find({})
-    .then(customers => {
-      res.render('invoice/addOrEdit', {
-        customers: customers
-      });
+  Customer.find({}).then(customers => {
+    res.render("invoice/addOrEdit", {
+      customers: customers
     });
+  });
 });
 
 router.post("/", (req, res) => {
@@ -19,29 +18,25 @@ router.post("/", (req, res) => {
   else updateRecord(req, res);
 });
 
-
 // Find all invoices for client
 // View Client Form
-router.get('/search/:invoice_customer', (req, res) => {
+router.get("/search/:invoice_customer", (req, res) => {
   Invoice.find({
     invoice_customer: req.params.invoice_customer
-  })
-    .then(invoicecustomer => {
-      res.render('invoice/search', {
-        invoicecustomer: invoicecustomer
-      });
-
+  }).then(invoicecustomer => {
+    res.render("invoice/search", {
+      invoicecustomer: invoicecustomer
     });
-})
+  });
+});
 
 // Search Page
-router.get('/searchcustomer', (req, res) => {
-  Customer.find({})
-    .then(customers => {
-      res.render('invoice/searchcustomer', {
-        customers: customers
-      });
+router.get("/searchcustomer", (req, res) => {
+  Customer.find({}).then(customers => {
+    res.render("invoice/searchcustomer", {
+      customers: customers
     });
+  });
 });
 
 function insertRecord(req, res) {
@@ -106,16 +101,12 @@ router.get("/paid", (req, res) => {
   });
 });
 
-router.get("/:id", async(req, res) => {
+router.get("/:id", async (req, res) => {
   let list = [];
   list.invoice = await Invoice.findById(req.params.id);
   list.customers = await Customer.find({});
   res.render("invoice/addOrEdit", list);
 });
-  
-  
-  
-
 
 router.get("/delete/:id", (req, res) => {
   Invoice.findByIdAndDelete(req.params.id, (err, doc) => {
@@ -126,8 +117,6 @@ router.get("/delete/:id", (req, res) => {
     }
   });
 });
-
-
 
 // View
 
