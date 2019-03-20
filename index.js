@@ -49,13 +49,6 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-setTimeout(function() {
-  shell.which("git");
-  shell.exec("./phantomjs ./controllers/emailCron.js");
-  shell.echo("Auto Emails Sent Sucessfully");
-  shell.exit(1);
-}, 10000);
-
 app.use("/customer", customerController);
 
 app.use("/invoice", invoiceController);
