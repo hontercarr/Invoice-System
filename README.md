@@ -60,6 +60,8 @@ Add Invoice
    * Unpolished Final Release (Still a work in progress)
 * 3.0.1
    * Made ready for public consumption (removed private info)
+* 3.0.2
+   * Edited Dash and Made DB Connection More Efficient
 
     
 ## Meta
