@@ -23,7 +23,7 @@ Main Dashboard
 Invoices List
 ![Invoices List](https://github.com/suaw-dev/Invoice-System/blob/Isaac/README_images/invoices.png?raw=true)
 Customers List
-![Customers List](https://github.com/suaw-dev/Invoice-System/blob/Isaac/README_images/customers.png?raw=true)
+![Customers List](https://github.com/suaw-dev/Invoice-System/blob/Isaac/README_images/customer_list.png?raw=true)
 Add Invoice
 ![Add Invoices](https://github.com/suaw-dev/Invoice-System/blob/Isaac/README_images/add_invoice.png?raw=true)
 ![Email](https://github.com/suaw-dev/Invoice-System/blob/Isaac/README_images/email.png?raw=true)
