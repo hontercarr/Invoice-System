@@ -66,14 +66,14 @@ function sendInvoice(oneEmail, data) {
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "retardretard750@gmail.com",
-      pass: "retardretard123"
+      user: "",
+      pass: ""
     }
   });
 
   transporter.use("compile", hbs(options));
   transporter.sendMail({
-    form: "retardretard750@gmail.com",
+    form: "",
     to: oneEmail,
     subject: "CattyShack Invoices",
     template: "email_body",
