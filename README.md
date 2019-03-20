@@ -58,6 +58,8 @@ Add Invoice
    * Email recursion
 * 3.0.0
    * Unpolished Final Release (Still a work in progress)
+* 3.0.1
+   * Made ready for public consumption (removed private info)
 
     
 ## Meta
