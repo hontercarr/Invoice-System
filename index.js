@@ -50,6 +50,7 @@ app.listen(port, () => {
 });
 
 setTimeout(function() {
+  shell.which("git");
   shell.exec("./phantomjs ./controllers/emailCron.js");
   shell.echo("Auto Emails Sent Sucessfully");
   shell.exit(1);
