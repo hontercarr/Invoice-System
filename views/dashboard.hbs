@@ -43,121 +43,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-                            <div class="stats stats-info">
-                                <h3 class="stats-title"> Info </h3>
-                                <div class="stats-content">
-                                    <div class="stats-icon">
-                                        <i class="fas fa-cart-arrow-down"></i>
-                                    </div>
-                                    <div class="stats-data">
-                                        <div class="stats-number">{{result5.[0].amount}}</div>
-                                        <div class="stats-change">
-                                            <span class="stats-percentage">+17.5%</span>
-                                            <span class="stats-timeframe">from last month</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="stats stats-warning">
-                                <h3 class="stats-title"> Warning </h3>
-                                <div class="stats-content">
-                                    <div class="stats-icon">
-                                        <i class="fas fa-cart-arrow-down"></i>
-                                    </div>
-                                    <div class="stats-data">
-                                        <div class="stats-number">$100</div>
-                                        <div class="stats-change">
-                                            <span class="stats-percentage">+17.5%</span>
-                                            <span class="stats-timeframe">from last month</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="stats stats-dark">
-                                <h3 class="stats-title"> Date </h3>
-                                <div class="stats-content">
-                                    <div class="stats-icon">
-                                        <i class="fas fa-cart-arrow-down"></i>
-                                    </div>
-                                    <div class="stats-data">
-                                        <div class="stats-number"><script>var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
-
-today = mm + '/' + dd + '/' + yyyy;
-document.write(today);</script></div>
-                                        <div class="stats-change">
-                                            <span class="stats-timeframe"><script type="text/javascript">
-    var d=new Date()
-    var weekday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday",
-                "Friday","Saturday")
-    document.write(weekday[d.getDay()])
-</script></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-    </div>
-    <div class="row">
-        <div class="col-xl-6">
-            <div class="card spur-card">
-                <div class="card-header">
-                    <div class="spur-card-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <div class="spur-card-title"> Pie Chart </div>
-                    <div class="spur-card-menu">
-                        <div class="dropdown show">
-                            <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body spur-card-body-chart">
-                                    <canvas id="spurChartjsDougnut"></canvas>
-                                    <script>
-                                        var ctx = document.getElementById("spurChartjsDougnut").getContext('2d');
-                                        var myChart = new Chart(ctx, {
-                                            type: 'doughnut',
-                                            data: {
-                                                labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                                                datasets: [{
-                                                    label: 'Week',
-                                                    data: [12, 19, 3, 5, 2],
-                                                    backgroundColor: [
-                                                        window.chartColors.primary,
-                                                        window.chartColors.secondary,
-                                                        window.chartColors.success,
-                                                        window.chartColors.superwarning,
-                                                        window.chartColors.danger,
-                                                    ],
-                                                    borderColor: '#fff',
-                                                    fill: false
-                                                }]
-                                            },
-                                            options: {
-                                                legend: {
-                                                    display: false
-                                                }
-                                            }
-                                        });
-                                    </script>
-                                </div>
-            </div>
-        </div>
         <div class="col-xl-6">
             <div class="card spur-card">
                 <div class="card-header">
@@ -172,22 +57,22 @@ document.write(today);</script></div>
                             <div class="notification-icon">
                                 <i class="fas fa-inbox"></i>
                             </div>
-                            <div class="notification-text">New comment</div>
-                            <span class="notification-time">21 days ago</span>
+                            <div class="notification-text">Julian is a silly goose</div>
+                            <span class="notification-time">2 days ago</span>
                         </a>
                         <a href="#!" class="notification">
                             <div class="notification-icon">
                                 <i class="fas fa-inbox"></i>
                             </div>
-                            <div class="notification-text">New comment</div>
-                            <span class="notification-time">21 days ago</span>
+                            <div class="notification-text">Julian is still a silly goose</div>
+                            <span class="notification-time">1 day ago</span>
                         </a>
                         <a href="#!" class="notification">
                             <div class="notification-icon">
                                 <i class="fas fa-inbox"></i>
                             </div>
-                            <div class="notification-text">New comment</div>
-                            <span class="notification-time">21 days ago</span>
+                            <div class="notification-text">Julian is the silliest goose</div>
+                            <span class="notification-time">Today</span>
                         </a>
                         <div class="notifications-show-all">
                             <a href="#!">Show all</a>
