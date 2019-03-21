@@ -1,16 +1,13 @@
 const mongoose = require("mongoose");
+const pass = require("../keys.js");
 
-mongoose.connect(
-  "mongodb+srv://suaw:<password>@invoicing-rw3sx.mongodb.net/test?retryWrites=true",
-  { useNewUrlParser: true },
-  err => {
-    if (!err) {
-      console.log("MongoDB Connection Successful");
-    } else {
-      console.log("Error in DB connection : " + err);
-    }
+mongoose.connect(pass, { useNewUrlParser: true }, err => {
+  if (!err) {
+    console.log("MongoDB Connection Successful");
+  } else {
+    console.log("Error in DB connection : " + err);
   }
-);
+});
 
 require("./invoice.model");
 require("./customer.model");
