@@ -10,9 +10,6 @@ var invoiceSchema = new mongoose.Schema({
   date: {
     type: String
   },
-  amount: {
-    type: String
-  },
   owed: {
     type: String
   },

@@ -5,7 +5,6 @@ const router = express.Router();
 const path = require("path");
 const exphbs = require("express-handlebars");
 const bodyparser = require("body-parser");
-const shell = require("shelljs");
 
 const customerController = require("./controllers/customerController");
 const invoiceController = require("./controllers/invoiceController");
@@ -48,12 +47,6 @@ var port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-// ShellJS to run Emails Periodically
-setInterval(function() {
-  shell.exec("node emailCron.js");
-  shell.echo("Phantom for Emails: Success");
-}, 10000);
 
 app.use("/customer", customerController);
 
