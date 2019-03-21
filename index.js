@@ -1,16 +1,16 @@
 require("./models/db");
-require("dotenv").config();
 
 const express = require("express");
 const router = express.Router();
 const path = require("path");
 const exphbs = require("express-handlebars");
 const bodyparser = require("body-parser");
+const shell = require("shelljs");
 
 const customerController = require("./controllers/customerController");
 const invoiceController = require("./controllers/invoiceController");
 const emailController = require("./controllers/emailController");
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Invoice = mongoose.model("Invoice");
 const Customer = mongoose.model("Customer");
 
@@ -44,7 +44,6 @@ app.get("/", async (req, res) => {
   res.render("dashboard", list);
 });
 
-
 var port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
@@ -55,5 +54,3 @@ app.use("/customer", customerController);
 app.use("/invoice", invoiceController);
 
 app.use("/email", emailController);
-
-

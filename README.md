@@ -1,5 +1,5 @@
 # Invoice-System
-> Invoice System Project for Mr. Erik Farrar built with Node.js, Express, Handlebars, and MongoDB
+> Invoice System Project for Mr. Erik Farrar built with Node.js, Express, Handlebars, and MongoDB (yes I know I failed to spell Major just relax)
 
 ## Installation
 
@@ -23,7 +23,7 @@ Main Dashboard
 Invoices List
 ![Invoices List](https://github.com/suaw-dev/Invoice-System/blob/Isaac/README_images/invoices.png?raw=true)
 Customers List
-![Customers List](https://github.com/suaw-dev/Invoice-System/blob/Isaac/README_images/customers.png?raw=true)
+![Customers List](https://github.com/suaw-dev/Invoice-System/blob/Isaac/README_images/customer_list.png?raw=true)
 Add Invoice
 ![Add Invoices](https://github.com/suaw-dev/Invoice-System/blob/Isaac/README_images/add_invoice.png?raw=true)
 ![Email](https://github.com/suaw-dev/Invoice-System/blob/Isaac/README_images/email.png?raw=true)
@@ -60,6 +60,8 @@ Add Invoice
    * Unpolished Final Release (Still a work in progress)
 * 3.0.1
    * Made ready for public consumption (removed private info)
+* 3.0.2
+   * Edited Dash and Made DB Connection More Efficient
 
     
 ## Meta
