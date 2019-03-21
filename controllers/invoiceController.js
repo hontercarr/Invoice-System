@@ -22,7 +22,7 @@ router.get("/status/:id", (req, res) => {
       if (err) {
         console.log("err: " + err);
       }
-      res.redirect("http://localhost:8080/invoice/list");
+      res.redirect("http://10.1.0.13:8080/invoice/list");
     }
   );
 });
