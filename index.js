@@ -5,7 +5,6 @@ const router = express.Router();
 const path = require("path");
 const exphbs = require("express-handlebars");
 const bodyparser = require("body-parser");
-const shell = require("shelljs");
 
 const customerController = require("./controllers/customerController");
 const invoiceController = require("./controllers/invoiceController");
