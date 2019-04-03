@@ -19,8 +19,8 @@ function insertRecord(req, res) {
   var customer = new Customer();
   customer.fullName = req.body.fullName;
   customer.email = req.body.email;
-  customer.mobile = req.body.mobile;
-  customer.address = req.body.address;
+  customer.ext = req.body.ext;
+  customer.room = req.body.room;
   customer.save((err, doc) => {
     if (!err) res.redirect("customer/list");
     else {

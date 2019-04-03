@@ -8,10 +8,10 @@ var customerSchema = new mongoose.Schema({
   email: {
     type: String
   },
-  mobile: {
+  ext: {
     type: String
   },
-  address: {
+  room: {
     type: String
   },
   date: {
