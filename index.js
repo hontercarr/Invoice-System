@@ -49,12 +49,6 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-// ShellJS to run Emails Periodically
-setInterval(function() {
-  shell.exec("node emailCron.js");
-  shell.echo("Phantom for Emails: Success");
-}, 10000);
-
 app.use("/customer", customerController);
 
 app.use("/invoice", invoiceController);

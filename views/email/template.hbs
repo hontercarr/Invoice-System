@@ -176,16 +176,18 @@
 
                             <p>Below are the unpaid invoices currently under your name.</p>
 
-                            <table style="width:100%; border: 1px solid black;">
+                            <table style="width:100%; text-align: left; border: 1px solid black;">
                                 <tr style="border: 1px solid black;">
                                     <th>Item</th>
                                     <th>Price</th>
+                                    <th>Date</th>
                                 </tr>
                                 {{#each data}}
                                 {{#contains isPaid "False"}}
-                                <tr style="border: 1px solid black;">
+                                <tr style="text-align: left; border: 1px solid black;">
                                     <td>{{item}}</td>
                                     <td>{{amount}}</td>
+                                    <td>{{date}}</td>
                                 </tr>
                                 {{/contains}}
                                 {{/each}}
