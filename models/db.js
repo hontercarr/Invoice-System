@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const pass = require("../keys.js");
+const pass = "mongodb://localhost:27017/invoices";
 
 mongoose.connect(pass, { useNewUrlParser: true }, err => {
   if (!err) {

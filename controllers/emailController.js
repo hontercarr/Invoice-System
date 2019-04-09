@@ -29,7 +29,13 @@ router.get("/all", (req, res) => {
         Customer.find({ email: oneEmail }).then(customers => {
           let customerName = customers[0].fullName;
           Invoice.find({ invoice_customer: customerName }).then(thecustomer => {
-            sendInvoice(oneEmail, thecustomer);
+            var tot = 0;
+            thecustomer.forEach(function(value){
+                tot + value.owed;
+                console.log(value.owed);
+            });
+            sendInvoice(oneEmail, thecustomer, tot);
+            console.log(tot);
           });
         });
         o++;
@@ -49,7 +55,7 @@ router.get("/all", (req, res) => {
 //   });
 // });
 
-function sendInvoice(oneEmail, data) {
+function sendInvoice(oneEmail, data, tot) {
   var nodemailer = require("nodemailer");
   var hbs = require("nodemailer-express-handlebars");
   var options = {
@@ -78,7 +84,8 @@ function sendInvoice(oneEmail, data) {
     subject: "CattyShack Invoices",
     template: "email_body",
     context: {
-      data: data
+      data: data,
+      tot: tot
     }
   });
 }
