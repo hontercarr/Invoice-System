@@ -1,3 +1,6 @@
+## Note
+> This repository is no longer maintained.
+
 # Invoice-System
 > Invoice System Project for Mr. Erik Farrar built with Node.js, Express, Handlebars, and MongoDB (yes I know I failed to spell Major just relax)
 
