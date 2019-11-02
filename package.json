@@ -20,7 +20,7 @@
     "handlebars-helpers": "^0.10.0",
     "http": "0.0.0",
     "mongodb": "^3.1.13",
-    "mongoose": "^5.4.6",
+    "mongoose": "^5.7.5",
     "node-cron": "^2.0.3",
     "nodemailer": "^5.1.1",
     "nodemailer-express-handlebars": "^3.0.0",
